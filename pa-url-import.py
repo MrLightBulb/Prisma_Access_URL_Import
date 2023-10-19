@@ -11,7 +11,9 @@ def VerifyConfigFile():
         return (True)
     else:
         return (False)
-    
+
+##-------------TAG Objects---------------------------------------##
+
 def TAGobject(Config_Url, BearerToken):
     print("Creating TAG for ADEM ...\n")
     ConfigUrl = f"https://{Config_Url}/sse/config/v1/tags?folder=Shared"
@@ -28,13 +30,12 @@ def TAGobject(Config_Url, BearerToken):
             error_messages.append(details.get('message', ''))
         # Print error messages
         for message in error_messages:
-            print("\t\033[1;31mTAG Object "+ message +":\033[0m"+" ADEM\n")
-            
+            print("\t\033[1;31mTAG Object "+ message +":\033[0m"+" ADEM\n")   
     else:
         print("\t\033[1;31m TAG Object Creation Failed: " + "\033[0m")
         print ("\tServer Response:" + response.text)
 
-
+##-------------Dynamic Address Group Creation Section--------------------------------##
 
 
 def DynamicAddressGroup(Config_Url, BearerToken):
@@ -159,7 +160,7 @@ def AskCommit():
 
 def main():
     print("\n-------------------------------------")
-    print("Script Started")
+    print("URL Import Script Started")
     print("-------------------------------------\n")
     print("Generating Auth Token ...\n")
     time.sleep(2)       
